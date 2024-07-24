@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <style>
+        body{
+            height: 100vh;
+            width: 100vw;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 0;
+            padding: 0;
+        }
+       .calculator{
+        width: 370px;
+        height: 700px;
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: center;
+        background-color: #252525;
+        border-radius: 25px;
+        padding-block: 10px;
+       }
+       button{
+        width: 80px;
+        height: 40px;
+        margin: 5px;
+        font-weight: bolder;
+        border-radius: 5px;
+        border: solid black 1px;
+        font-size: 25px;
+        cursor: pointer;
+       }
+       button:active{
+        width: 75px;
+        height: 37px;
+        margin-left: 7.5px;
+        margin-right: 7.5px;
+        border:solid black 2.5px;
+        font-size: 20.5px;
+       }
+       input{
+        height: 60px;
+        width: 345px;
+        font-size: 30px;
+        margin-top: 25px;
+        margin-bottom: 25px;
+        border-radius: 5px;
+        border: 0;
+        background-color:#00b14158;
+        outline: 0;
+        text-align: right;
+       }
+       .deliteAc{
+        height: 40px; 
+        width: 170px;
+        color: #000000; 
+        font-size: 25px;
+        font-family: Arial, Helvetica, sans-serif;
+       }
+       .deliteAc:active{
+        height: 38px; 
+        width: 160px;
+        margin-left: 10px;
+        margin-right: 10px;
+        border:solid black 2px;
+        font-size: 22px;
+       }
+       .span{
+        font-size: 20px;
+        position: relative;
+        left: 130px;
+        top: 15px;
+        color: white;
+       }
+      
+    </style>
+</head>
+<body>
+    <div class="calculator">
+        <span class="span">CASIO</span>
+        <input type="text" id="inp">
+        <button onclick="delete1()" class="deliteAc">Clear</button>
+        <button onclick="ac()" class="deliteAc" >Ac</button>
+        <button onclick="number1(9)"><i class="fa-solid fa-9" style="color: #000000;"></i></button>
+        <button onclick="number1(8)"><i class="fa-solid fa-8" style="color: #000000;"></i></button>
+        <button onclick="number1(7)"><i class="fa-solid fa-7" style="color: #000000;"></i></button>
+        <button onclick="number1('/')"><i class="fa-solid fa-divide" style="color: #000000;"></i></button>
+        <button onclick="number1(6)"><i class="fa-solid fa-6" style="color: #000000;"></i></button>
+        <button onclick="number1(5)"><i class="fa-solid fa-5" style="color: #000000;"></i></button>
+        <button onclick="number1(4)"><i class="fa-solid fa-4" style="color: #000000;"></i></button>
+        <button onclick="number1('*')"><i class="fa-solid fa-xmark" style="color: #000000;"></i></button>
+        <button onclick="number1(3)"><i class="fa-solid fa-3" style="color: #000000;"></i></button>
+        <button onclick="number1(2)"><i class="fa-solid fa-2" style="color: #000000;"></i></button>
+        <button onclick="number1(1)"><i class="fa-solid fa-1" style="color: #000000;"></i></button>
+        <button onclick="number1('+')"><i class="fa-solid fa-plus" style="color: #000000;"></i></button>
+        <button onclick="number1(0)"><i class="fa-solid fa-0" style="color: #000000;"></i></button>
+        <button onclick="number1('.')"><span style="color: #000000;">.</span></i></button>
+        <button onclick="number1('-')"><i class="fa-solid fa-minus" style="color: #000000;"></i></button>
+        <button onclick="equal()" style="background-color: orange;"><i class="fa-solid fa-equals" style="color: #000000;"></i></button>
+        <button onclick="squareoot()"><i class="fa-solid fa-square-root-variable" style="color: #000000;"></i></button>
+        <button onclick="cuberoot()" style="font-weight: bold;">&#8731;</button>
+        <button onclick="squarepov()" style="font-weight: bold;">x²</button>
+        <button onclick="exp1()" style="font-weight: bold;">exp</button>
+        <button onclick="ln1()" style="font-weight: bold;">ln</button>
+        <button onclick="log1()" style="font-weight: bold;">log</button>
+        <button onclick="per()" style="font-weight: bold;">%</button>
+        <button onclick="sinf()" style="font-weight: bold;">sin</button>
+        <button onclick="cosf()" style="font-weight: bold;">cos</button>
+        <button onclick="tanf()" style="font-weight: bold;">tan</button>
+        <button onclick="cosec()" style="font-weight: bold;">cosec</button>
+        <button onclick="sec()" style="font-weight: bold;">sec</button>
+        <button onclick="cot()" style="font-weight: bold;">cot</button>
+        <button onclick="sinh()" style="font-weight: bold;">sinh</button>
+        <button onclick="cosh()" style="font-weight: bold;">cosh</button>
+        <button onclick="tanh()" style="font-weight: bold;">tanh</button>
+    </div>
+    
+    <script>
+         function number1(num){
+            // document.getElementById("inp").value+=num;
+            document.getElementById("inp").value+=num;
+
+        }
+
+        function equal(){
+            let expression=document.getElementById("inp").value
+            document.getElementById("inp").value=eval(expression)
+        }
+        function delete1(){
+            let expression=document.getElementById("inp")
+                expression.value=expression.value.slice(0,-1)
+        }
+
+        function ac(){
+            document.getElementById("inp").value=""
+        }
+
+        function squareoot(){
+            let a=document.getElementById("inp").value
+            document.getElementById("inp").value=Math.sqrt(a)
+        }
+        function cuberoot(){
+            let a=document.getElementById("inp").value
+            document.getElementById("inp").value=Math.cbrt(a)
+        }
+        function squarepov(){
+            let a=document.getElementById("inp").value
+            document.getElementById("inp").value=Math.pow(a,2)
+        }
+        function exp1(){
+            let a=document.getElementById("inp").value
+            document.getElementById("inp").value=Math.exp(a)
+        }
+        function ln1(){
+            let a=document.getElementById("inp").value
+            document.getElementById("inp").value=Math.log10(a)
+        }
+        function log1(){
+            let a=document.getElementById("inp").value
+            document.getElementById("inp").value=Math.log(a)
+        }
+        function per(){
+            let a=document.getElementById("inp").value
+            document.getElementById("inp").value=a/100
+        }
+        function sinf(){
+            let a=document.getElementById("inp").value
+            document.getElementById("inp").value=Math.sin(a*(Math.PI)/180)
+        }
+        function cosf(){
+            let a=document.getElementById("inp").value
+            document.getElementById("inp").value=Math.cos(a*(Math.PI)/180)
+        }
+        function tanf(){
+            let a=document.getElementById("inp").value
+            document.getElementById("inp").value=Math.tan(a*(Math.PI)/180)
+        }
+        function cosec(){
+            let a=document.getElementById("inp").value
+            let b=a*(Math.PI)/180
+            document.getElementById("inp").value=Math.sin(1/b)
+        }
+        function sec(){
+            let a=document.getElementById("inp").value
+            let b=a*(Math.PI)/180
+            document.getElementById("inp").value=Math.cos(1/b)
+        }
+        function cot(){
+            let a=document.getElementById("inp").value
+            let b=a*(Math.PI)/180
+            document.getElementById("inp").value=Math.tan(1/b)
+        }
+        function sinf(){
+            let a=document.getElementById("inp").value
+            document.getElementById("inp").value=Math.sinh(a*(Math.PI)/180)
+        }
+        function cosf(){
+            let a=document.getElementById("inp").value
+            document.getElementById("inp").value=Math.cosh(a*(Math.PI)/180)
+        }
+        function tanf(){
+            let a=document.getElementById("inp").value
+            document.getElementById("inp").value=Math.tanh(a*(Math.PI)/180)
+        }
+            // Create an Intl.NumberFormat formatter with desired options
+            
+            // const numberFormatter = new Intl.NumberFormat('en-US', {
+            //   style: 'decimal',
+            //   minimumFractionDigits: 2,
+            //   maximumFractionDigits: 2
+            // });
+
+            // // Numbers to be formatted
+            // const numbersToFormat = [12345.6789, 9876.54321, 456.789];
+
+            // // Format and display each number using the formatter
+            // numbersToFormat.forEach(number => {
+            //   const formattedNumber = numberFormatter.format(number);
+            //   console.log(formattedNumber);
+            // });
+
+            // // Output:
+            // // 12,345.68
+            // // 9,876.54
+            // // 456.79
+    </script>
+</body>
+</html>

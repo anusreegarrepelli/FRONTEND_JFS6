@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            min-height: 100vh;
+            width: 100%;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR3r9iH10vl4I73-lk4_SBmzAhHJJQHFA_FaHhvTewDDHCjdkurwr_m8hUTH3J_dD5UGI8&usqp=CAU");
+            background-size: cover;
+            background-repeat: no-repeat;
+        }
+        .main{
+            height: 35vh;
+            width: 25vw;
+            border-radius: 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            backdrop-filter: blur(20px);
+           
+        }
+        input{
+            width: 200px;
+            height: 25px;
+            margin: 5px;
+            border-radius: 5px;
+            border: 1px solid black;
+        }
+        button{
+            width: 95px;
+            height: 32px;
+            border-radius: 5px;
+            border: 1px solid black;
+            margin-inline: 5px;
+        }
+        .main h1{
+            font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            line-height: 0;
+        }
+        .buttons{
+            display: flex;
+        }
+        #outputCaptcha{
+            text-align: center;
+            font-size: larger;
+            background-image: url("https://www.codeproject.com/KB/scripting/CreateCaptcha/1.JPG");
+            background-size: cover;
+        }
+        #inputCaptcha{
+            text-align: center;
+            font-size: larger;
+        }
+    </style>
+</head>
+<body>
+    <div class="main">
+        <h1>Captcha Code</h1>
+        <input type="text" id="outputCaptcha">
+        <input type="text" id="inputCaptcha">
+        <small id="validationMessage"></small>
+        <div class="buttons">
+            <button onclick="refresh()">Refresh</button>
+            <button onclick="verification()">Submit</button>
+        </div>
+    </div>
+
+    <script>
+        let captchaValidation;
+        
+        
+        function refresh()
+        {
+            let captcha="";
+            let arrcaptcha=['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z',0,1,2,3,4,5,6,7,8,9,'a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z']
+                for (i = 0; i<6; i++) {
+                    let captcha1=Math.floor(Math.random()*arrcaptcha.length)
+                    let generatedCaptcha=arrcaptcha[captcha1];
+                    captcha+=generatedCaptcha;
+                }
+                document.getElementById("outputCaptcha").value=captcha;
+                captchaValidation=captcha
+            }
+            refresh()
+
+            function verification ()
+            { 
+                let inputCaptcha=document.getElementById("inputCaptcha").value
+
+                //console.log(inputCaptcha)
+                if (inputCaptcha==captchaValidation) {
+                    //document.getElementById("validationMessage").innerHTML="Successful attempt"
+                    window.open("https://www.instagram.com");
+                }
+                else{
+                    document.getElementById("validationMessage").innerHTML="Entered incorrect Captcha"
+                    document.getElementById("validationMessage").style.color="red"
+                    let inputCaptcha=document.getElementById("inputCaptcha").value="";
+                    refresh()
+                }
+            }
+            
+    </script>
+</body>
+</html>

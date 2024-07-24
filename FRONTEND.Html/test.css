@@ -1,0 +1,98 @@
+.container1{
+    display: grid;
+    grid-template-columns: 10% auto 5% 5% auto;
+    position: fixed;
+    left: 200px;
+    height: 20px;
+    width: 100%;
+}
+
+.Register{
+    color:orange;
+}
+
+.container2{
+    position: fixed;
+    display: grid;
+    grid-template-columns: auto 5% 5% 5% 5% 5% 5% 5% auto;
+    height: 20px;
+    width: 100%;
+    top: 40px;
+    padding: 10px;
+    background-color: black;
+    color: white;
+}
+
+.Linea{
+    margin-left: 300px;
+}
+
+.container3{
+    position: relative;
+    top: 80px;
+    background-color: black;
+    color: white;
+    font-size: 20px;
+    font-family: 'Courier New', Courier, monospace;
+    display: grid;
+    grid-template-columns: auto auto auto auto;
+    gap: 70px;
+    /* text-decoration-line: underline; */
+}
+
+.aboutus{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+}
+
+
+.left{
+    margin-left: 200px;
+}
+
+.container4{
+    background-color: black;
+    position: relative;
+    top: 75px;
+    height: 500px;
+    width: 100%;
+    margin: 0%;   
+}
+
+.orangeCircle {
+    width: 200px;
+    height: 200px;
+    background-color: orange;
+    border-radius: 50%;
+    position: absolute;
+    bottom: 200px;
+    left: 250px;
+  }
+
+.greyBox{
+    height: 300px;
+    width: 500px;
+    background-color: grey;
+    position: relative;
+    top: 150px;
+    left: 300px;
+}
+
+.whiteCircle{
+    height: 100px;
+    width: 100px;
+    border-radius: 50%;
+    background-color: white ;
+    position: relative;
+    left: 450px;
+    
+}
+
+.orange-text{
+    margin-left: 50px;
+    color: aliceblue;
+    margin-top: 50px
+}
+  
+  
